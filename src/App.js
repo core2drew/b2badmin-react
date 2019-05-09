@@ -3,8 +3,8 @@ import TabContext from './context/tab'
 import Navbar from './components/navbar'
 import Sidebar from './components/sidebar'
 import Filters from './components/filters'
-import Company from './containers/company'
-import Contact from './containers/contact'
+import Company from './company'
+import Contact from './contact'
 import Tabs from './components/tabs'
 
 import './sass/index.scss';
@@ -32,8 +32,8 @@ function App() {
             <Filters />
             <TabContext.Provider value={{ isCompanyActive, isContactActive, onClickCompanyTab, onClickContactTab }}>
               <Tabs />
-              <Company isVisible={isCompanyActive} />
-              <Contact isVisible={isContactActive} />
+              <Company />
+              <Contact />
             </TabContext.Provider>
           </div>
       </div>

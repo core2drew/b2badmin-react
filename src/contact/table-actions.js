@@ -1,7 +1,8 @@
 import React from 'react'
-import Dropdown from '../../components/dropdown'
+import Dropdown from '../components/dropdown'
+import ViewContacts from './view-contacts'
 
-const TableActions = () => {
+const TableActions = ({ isVisible }) => {
 
   const displayCountItems = [
     {
@@ -22,13 +23,9 @@ const TableActions = () => {
     <div className="table-options">
       <button className="refresh button -secondary -disabled"><i className="icon-refresh"></i>Refresh List</button>
       <Dropdown placeHolder={'Display Count'} items={displayCountItems} initialSelected={displayCountItems[0]}/>
+      <ViewContacts />
     </div>
   )
-}
-
-
-TableActions.defaultProps = {
-  isVisible: false
 }
 
 export default TableActions
