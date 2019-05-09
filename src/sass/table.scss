@@ -6,6 +6,15 @@
   > thead {
     background-color: $blue-3;
     color: #fff;
+
+    > tr > th.-sort {
+      cursor: pointer;
+    }
+
+    > tr > th.-center {
+      text-align: center;
+    }
+
     > tr > th {
       font-weight: normal;
       text-align: left;
@@ -63,7 +72,7 @@
           color: #e2e2e2;
         }
       }
-      > td.call {
+      > td.actions {
         min-width: 80px;
         text-align: center;
         > i[class*=icon] {

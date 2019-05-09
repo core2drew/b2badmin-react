@@ -17,8 +17,6 @@
   }
 
   > .refresh {
-    border-color: #8298a4;
-    color: #8298a4;
     > i[class*=icon] {
       margin-right: 10px;
     }
@@ -31,6 +29,25 @@
     > .count {
       font-weight: bold;
       margin-left: 10px;
+    }
+  }
+  > .view-contacts {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    > .label {
+      margin-right: 10px;
+    }
+    > .button {
+      color: #fff;
+      border-color: #fff;
+      font-weight: normal;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      > i[class*=icon] {
+        margin-right: 10px;
+      }
     }
   }
 }

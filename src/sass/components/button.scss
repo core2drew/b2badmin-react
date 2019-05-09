@@ -40,4 +40,21 @@
     border: 2px solid #fff;
     padding: 15px 20px
   }
+
+  &.-border-flat-right {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &.-border-flat-left {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.button.-secondary {
+  &.-disabled {
+    border-color: #8298a4;
+    color: #8298a4;
+  }
 }
