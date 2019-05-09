@@ -1,0 +1,47 @@
+@import "~normalize.css/normalize.css";
+@import "variables.scss";
+@import "helpers.scss";
+@import "components/button.scss";
+@import "components/circle-hq.scss";
+@import "navbar.scss";
+@import "sidemenu-filter.scss";
+@import "main.scss";
+@import "content.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14PX;
+  font-weight: 600;
+  color: $gray-1;
+  background-color: #e5eaee;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  &:visited {
+    color: inherit;
+  }
+}
+
+input,
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1400px;
+  width: 100%;
+  margin: auto;
+  padding: 0 30px;
+}

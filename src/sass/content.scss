@@ -1,0 +1,11 @@
+@import "variables.scss";
+
+#Content {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  grid-gap: 15px;
+  margin-top: 20px;
+  > .sidemenu-filter {
+    grid-row: 1 / 2;
+  }
+}

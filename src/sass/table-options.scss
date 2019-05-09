@@ -1,0 +1,36 @@
+@import "variables.scss";
+
+.table-options {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  > .button {
+    color: #fff;
+    border-color: #fff;
+    font-weight: normal;
+    font-size: 15px;
+    &:nth-last-child(n + 2) {
+      margin-right: 10px;
+    }
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  > .refresh {
+    border-color: #8298a4;
+    color: #8298a4;
+    > i[class*=icon] {
+      margin-right: 10px;
+    }
+  }
+  > .display {
+    > i[class*=icon] {
+      margin-left: 10px;
+      font-size: 10px;
+    }
+    > .count {
+      font-weight: bold;
+      margin-left: 10px;
+    }
+  }
+}

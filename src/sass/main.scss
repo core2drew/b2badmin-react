@@ -1,0 +1,13 @@
+@import "variables.scss";
+@import "filter-by.scss";
+@import "tabs.scss";
+@import "table-options.scss";
+@import "table.scss";
+
+.main {
+  > .tabs,
+  > .table-options {
+    background-color: $blue-3;
+    border-bottom: 1px solid $blue-2;
+  }
+}

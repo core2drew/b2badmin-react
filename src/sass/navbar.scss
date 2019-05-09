@@ -1,0 +1,42 @@
+@import "variables.scss";
+
+.navbar {
+  background-color: $blue-1;
+  color: #fff;
+  padding: 10px 0;
+  > .container {
+    padding-left: 60px;
+    padding-right: 60px;
+    > .links,
+    > .user {
+      margin-bottom: 7px;
+    }
+  }
+}
+
+.navbar > .container > .links {
+  margin-left: 20px;
+  > .link {
+    text-transform: uppercase;
+  }
+  > .link:nth-last-child(n + 2) {
+    margin-right: 10px;
+  }
+}
+.navbar > .container > .user {
+  margin-left: auto;
+  > .namesupport {
+    margin-bottom: 10px;
+    > .name,
+    > .support {
+      text-transform: uppercase;
+    }
+  }
+  > .downloadsavail {
+    margin: 0;
+    > i[class*=icon] {
+      font-size: 10px;
+      margin-left: 5px;
+    }
+  }
+}

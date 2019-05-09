@@ -1,0 +1,121 @@
+@import "variables.scss";
+
+.sidemenu-filter {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 15px;
+  > .search {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  > .hqonlyclear {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    > .hq-only,
+    > .clear {
+      font-weight: bold;
+      color: $blue-1;
+      font-size: 14px;
+    }
+  }
+  > .field{
+    margin-bottom: 5px;
+    border: 1px solid #beccd5;
+    padding: 5px 10px;
+    display: flex;
+    &.-active > i[class*=icon] {
+      color: $yellow-1;
+    }
+    > i[class*=icon]{
+      color: $blue-1;
+    }
+    > input {
+      border: none;
+      max-width: 177px;
+      width: 100%;
+    }
+  }
+
+  > .accordion {
+    padding: 15px 0;
+    > .item{
+      padding: 5px 10px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-weight: bold;
+      > i[class*=icon] {
+        color: $blue-1;
+      }
+    }
+  }
+
+  > .employees {
+    > .header > .title {
+      margin-bottom: 5px;
+    }
+  }
+
+  > .revenue {
+    > .header {
+      display: flex;
+      align-items: center;
+      > .showunknown {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        > input {
+          margin-right: 5px;
+        }
+        > .label {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  > .filter {
+    display: flex;
+    flex-direction: column;
+    
+    > .button {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  > .employees,
+  > .revenue,
+  > .filter {
+    border-top: 1px solid #dedede;
+    padding: 15px 0;
+    > .header {
+      > .title {
+        font-weight: bold;
+        font-size: 15px;
+      }
+    }
+  }
+
+  > .employees,
+  > .revenue {
+    > .header {
+      margin-bottom: 15px;
+    }
+    > .select-range {
+      color: $blue-1;
+      font-size: 14px;
+      margin-left: auto;
+      margin-bottom: 15px;
+    }
+    > .image {
+      width: 100%;
+    }
+  }
+}
