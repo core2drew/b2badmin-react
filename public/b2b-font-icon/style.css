@@ -1,10 +1,9 @@
 @font-face {
   font-family: 'b2bsite';
-  src:  url('fonts/b2bsite.eot?iql95k');
-  src:  url('fonts/b2bsite.eot?iql95k#iefix') format('embedded-opentype'),
-    url('fonts/b2bsite.ttf?iql95k') format('truetype'),
-    url('fonts/b2bsite.woff?iql95k') format('woff'),
-    url('fonts/b2bsite.svg?iql95k#b2bsite') format('svg');
+  src:
+    url('fonts/b2bsite.ttf?4gco9s') format('truetype'),
+    url('fonts/b2bsite.woff?4gco9s') format('woff'),
+    url('fonts/b2bsite.svg?4gco9s#b2bsite') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,42 +23,45 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-clear:before {
-  content: "\e906";
-}
-.icon-csv-file:before {
-  content: "\e907";
-}
-.icon-map-pin:before {
-  content: "\e908";
-}
-.icon-refresh:before {
-  content: "\e909";
-}
-.icon-minus:before {
-  content: "\e90a";
-}
-.icon-telephone:before {
-  content: "\e90b";
-}
-.icon-chevron-down:before {
-  content: "\e905";
-}
-.icon-chevron-right:before {
-  content: "\e90c";
-}
-.icon-search:before {
-  content: "\e904";
-}
-.icon-right-arrow:before {
+.icon-mail:before {
   content: "\e900";
 }
-.icon-equal:before {
+.icon-right-arrow:before {
   content: "\e901";
 }
-.icon-checked:before {
+.icon-equal:before {
   content: "\e902";
 }
-.icon-add:before {
+.icon-checked:before {
   content: "\e903";
+}
+.icon-add:before {
+  content: "\e904";
+}
+.icon-search:before {
+  content: "\e905";
+}
+.icon-chevron-down:before {
+  content: "\e906";
+}
+.icon-clear:before {
+  content: "\e907";
+}
+.icon-csv-file:before {
+  content: "\e908";
+}
+.icon-map-pin:before {
+  content: "\e909";
+}
+.icon-refresh:before {
+  content: "\e90a";
+}
+.icon-minus:before {
+  content: "\e90b";
+}
+.icon-telephone:before {
+  content: "\e90c";
+}
+.icon-chevron-right:before {
+  content: "\e90d";
 }

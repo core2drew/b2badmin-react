@@ -77,9 +77,19 @@
       > td.actions {
         min-width: 80px;
         text-align: center;
-        > i[class*=icon] {
+        > .actions {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        > .actions > i[class*=icon] {
           color: $yellow-1;
           font-size: 20px;
+          cursor: pointer;
+        }
+
+        > .actions > i[class*=mail] {
+          margin-right: 10px;
         }
       }
     }

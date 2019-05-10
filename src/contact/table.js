@@ -6,7 +6,7 @@ const Body = ({ data }) => {
     <tbody>
       {
         data.map(data => {
-          const {id, contact, title, department, company, location} = data
+          const {id, contact, title, department, company, location, phone, email} = data
           return (
             <tr key={id}>
               <td>
@@ -29,7 +29,10 @@ const Body = ({ data }) => {
                 </div>
               </td>
               <td className="actions">
-                <i className="icon-telephone"></i>
+                <div class="actions">
+                  {email && <i className="icon-mail"></i>}
+                  {phone && <i className="icon-telephone"></i>}
+                </div>
               </td>
             </tr>
           )
@@ -41,63 +44,63 @@ const Body = ({ data }) => {
 
 const Table = () => {
   const context = useContext(ContactContext)
-  const [data, setData] = useState(context.contacts)
+  // const [data, setData] = useState(context.contacts)
 
-  useEffect(() => {
-    const initData = [...context.contacts].splice(0, context.display)
-    setData(initData)
-  }, [context.display, context.contacts])
+  // useEffect(() => {
+  //   const initData = [...context.contacts].splice(0, context.display)
+  //   setData(initData)
+  // }, [context.display, context.contacts])
 
-  const handleSort = sortBy => {
-    let sortedData = []
-    let data = [...context.contacts].splice(0, context.display)
+  // const handleSort = sortBy => {
+  //   let sortedData = []
+  //   let data = [...context.data].splice(0, context.display)
     
-    if(sortBy === 'location') {
-      sortedData = data.sort((a, b) => {
-        if(a[sortBy].isHQ) {
-          return -1
-        }
-        if(a[sortBy].name > b[sortBy].name) {
-          return 1
-        }
-        return 0
-      })
-    } else {
-      sortedData = data.sort((a, b) => {
-        if(a[sortBy] < b[sortBy]) {
-          return -1
-        }
-        if(a[sortBy] > b[sortBy]) {
-          return 1
-        }
-        return 0
-      })
-    }
-    setData(sortedData)
-  }
+  //   if(sortBy === 'location') {
+  //     sortedData = data.sort((a, b) => {
+  //       if(a[sortBy].isHQ) {
+  //         return -1
+  //       }
+  //       if(a[sortBy].name > b[sortBy].name) {
+  //         return 1
+  //       }
+  //       return 0
+  //     })
+  //   } else {
+  //     sortedData = data.sort((a, b) => {
+  //       if(a[sortBy] < b[sortBy]) {
+  //         return -1
+  //       }
+  //       if(a[sortBy] > b[sortBy]) {
+  //         return 1
+  //       }
+  //       return 0
+  //     })
+  //   }
+  //   setData(sortedData)
+  // }
 
   return (
     <table className="table">
       <thead>
         <tr>
-          <th className="-sort" onClick={() => handleSort('contact')}>
+          <th className="-sort" onClick={() => context.handleSort('contact')}>
             <input type="checkbox" />
             Contact Name
             <i className="icon-chevron-down"></i>
           </th>
-          <th className="-sort" onClick={() => handleSort('title')}>
+          <th className="-sort" onClick={() => context.handleSort('title')}>
             Title
             <i className="icon-chevron-down"></i>
           </th>
-          <th className="-sort" onClick={() => handleSort('department')}>
+          <th className="-sort" onClick={() => context.handleSort('department')}>
             Department
             <i className="icon-chevron-down"></i>
           </th>
-          <th className="-sort" onClick={() => handleSort('company')}>
+          <th className="-sort" onClick={() => context.handleSort('company')}>
             Company
             <i className="icon-chevron-down"></i>
           </th>
-          <th className="-sort" onClick={() => handleSort('location')}>
+          <th className="-sort" onClick={() => context.handleSort('location')}>
             Location
             <i className="icon-chevron-down"></i>
           </th>
@@ -106,7 +109,7 @@ const Table = () => {
           </th>
         </tr>
       </thead>
-      <Body data={data}/>
+      <Body data={context.data}/>
     </table>
   )
 }

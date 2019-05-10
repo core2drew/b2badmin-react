@@ -32,7 +32,9 @@ const Body = ({ data }) => {
                 </div>
               </td>
               <td className="actions">
-                <i className="icon-telephone"></i>
+                <div class="actions">
+                  <i className="icon-telephone"></i>
+                </div>
               </td>
             </tr>
           )
