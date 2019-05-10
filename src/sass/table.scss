@@ -54,18 +54,20 @@
       }
       > td.location {
         > .location {
-          margin-left: 10px;
-          max-width: 250px;
+          display: flex;
+          align-items: flex-start;
+        }
+        > .location > .name {
+          max-width: 150px;
           width: 100%;
           word-wrap: break-word;
-          display: inline-block;
         }
-        > i[class*=icon],
-        > .circle-hq {
-          float: left;
+        > .location > i[class*=icon],
+        > .location > .circle-hq {
+          margin-right: 10px
         }
 
-        > i[class*=icon] {
+        > .location > i[class*=icon] {
           display: inline-block;
           width: 23px;
           height: 23px;

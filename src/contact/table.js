@@ -22,8 +22,11 @@ const Body = ({ data }) => {
               <td>
                 {company}
               </td>
-              <td>
-                {location}
+              <td className="location">
+                <div className="location">
+                  {location.isHQ ? <span class="circle-hq">HQ</span> : <i class="icon-map-pin"></i>}
+                  <span class="name">{location.name}</span>
+                </div>
               </td>
               <td className="actions">
                 <i className="icon-telephone"></i>
@@ -48,15 +51,28 @@ const Table = () => {
   const handleSort = sortBy => {
     let sortedData = []
     let data = [...context.contacts].splice(0, context.display)
-    sortedData = data.sort((a, b) => {
-      if(a[sortBy] < b[sortBy]) {
-        return -1
-      }
-      if(a[sortBy] > b[sortBy]) {
-        return 1
-      }
-      return 0
-    })
+    
+    if(sortBy === 'location') {
+      sortedData = data.sort((a, b) => {
+        if(a[sortBy].isHQ) {
+          return -1
+        }
+        if(a[sortBy].name > b[sortBy].name) {
+          return 1
+        }
+        return 0
+      })
+    } else {
+      sortedData = data.sort((a, b) => {
+        if(a[sortBy] < b[sortBy]) {
+          return -1
+        }
+        if(a[sortBy] > b[sortBy]) {
+          return 1
+        }
+        return 0
+      })
+    }
     setData(sortedData)
   }
 
