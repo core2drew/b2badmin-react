@@ -1,31 +1,13 @@
-import React from 'react'
-import Dropdown from '../components/dropdown'
-import ViewContacts from './view-contacts'
+import React, { useContext } from 'react'
+import TableActions from '../components/table-actions'
+import ViewContact from './view-contact'
+import ContactContext from '../context/contact'
 
-const TableActions = ({ isVisible }) => {
-
-  const displayCountItems = [
-    {
-      label: 'Display 25',
-      value: 25,
-    },
-    {
-      label: 'Display 50',
-      value: 50,
-    },
-    {
-      label: 'Display 100',
-      value: 100,
-    }
-  ]
-
+export default () => {
+  const context = useContext(ContactContext)
   return (
-    <div className="table-options">
-      <button className="refresh button -secondary -disabled"><i className="icon-refresh"></i>Refresh List</button>
-      <Dropdown placeHolder={'Display Count'} items={displayCountItems} initialSelected={displayCountItems[0]}/>
-      <ViewContacts />
-    </div>
+    <TableActions {...context}>
+      <ViewContact />
+    </TableActions>
   )
 }
-
-export default TableActions
