@@ -1,65 +1,108 @@
-import React from 'react'
+import React, { useContext, useState, useEffect } from 'react'
+import CompanyContext from '../context/company'
 
-const Table = () => (
-  <table className="table">
-    <thead>
-      <tr>
-        <th className="-sort">
-          <input type="checkbox" />
-          Company Name 
-          <i className="icon-chevron-down"></i>
-        </th>
-        <th className="-sort">
-          Products
-          <i className="icon-chevron-down"></i>
-        </th>
-        <th className="-sort">
-          Employees
-          <i className="icon-chevron-down"></i>
-        </th>
-        <th className="-sort">
-          Revenue
-          <i className="icon-chevron-down"></i>
-        </th>
-        <th className="-sort">
-          Industry
-          <i className="icon-chevron-down"></i>
-        </th>
-        <th className="-sort">
-          Location
-          <i className="icon-chevron-down"></i>
-        </th>
-        <th></th>
-      </tr>
-    </thead>
+const Body = ({ data }) => {
+  return (
     <tbody>
-      <tr>
-        <td>
-          <input type="checkbox" />
-          IBM
-        </td>
-        <td className="number">
-          2,477
-        </td>
-        <td className="number">
-          > 10,000
-        </td>
-        <td className="number">
-          > 10B
-        </td>
-        <td>
-          IT & Serv Other
-        </td>
-        <td className="location">
-          <span className="circle-hq">HQ</span>
-          <span className="location">Armonk, New York, United States</span>
-        </td>
-        <td className="actions">
-          <i className="icon-telephone"></i>
-        </td>
-      </tr>
+      {
+        data.map(data => {
+          const {id, company, products, employees, revenue, industry, location} = data
+          return (
+            <tr key={id}>
+              <td>
+                <input type="checkbox" />
+                {company}
+              </td>
+              <td className="number">
+                {products}
+              </td>
+              <td className="number">
+                {employees}
+              </td>
+              <td className="number">
+                > {revenue}B
+              </td>
+              <td>
+                {industry}
+              </td>
+              <td>
+                {location}
+              </td>
+              <td className="actions">
+                <i className="icon-telephone"></i>
+              </td>
+            </tr>
+          )
+        })
+      }
     </tbody>
-  </table>
-)
+  )
+}
+
+const Table = () => {
+  const context = useContext(CompanyContext)
+  const [data, setData] = useState(context.companies)
+
+  useEffect(() => {
+    const initData = [...context.companies].splice(0, context.display)
+    setData(initData)
+  }, [context.display])
+
+  useEffect(() => {
+    console.log(data)
+  })
+
+  const handleSort = sortBy => {
+    let sortedData = []
+    let data = [...context.companies].splice(0, context.display)
+    sortedData = data.sort((a, b) => {
+      if(a[sortBy] < b[sortBy]) {
+        return -1
+      }
+      if(a[sortBy] > b[sortBy]) {
+        return 1
+      }
+      return 0
+    })
+    console.log(sortedData)
+    setData(sortedData)
+  }
+
+  return (
+    <table className="table">
+      <thead>
+        <tr>
+          <th className="-sort" onClick={() => handleSort('company')}>
+            <input type="checkbox" />
+            Company Name 
+            <i className="icon-chevron-down"></i>
+          </th>
+          <th className="-sort" onClick={() => handleSort('products')}>
+            Products
+            <i className="icon-chevron-down"></i>
+          </th>
+          <th className="-sort" onClick={() => handleSort('employees')}>
+            Employees
+            <i className="icon-chevron-down"></i>
+          </th>
+          <th className="-sort" onClick={() => handleSort('revenue')}>
+            Revenue
+            <i className="icon-chevron-down"></i>
+          </th>
+          <th className="-sort" onClick={() => handleSort('industry')}>
+            Industry
+            <i className="icon-chevron-down"></i>
+          </th>
+          <th className="-sort" onClick={() => handleSort('location')}>
+            Location
+            <i className="icon-chevron-down"></i>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <Body data={data}/>
+    </table>
+  )
+}
 
 export default Table

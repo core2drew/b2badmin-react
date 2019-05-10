@@ -21,10 +21,9 @@ const Items = ({ items, handleSelectItem }) => {
   )
 }
 
-const Dropdown = ({ placeHolder, items, onChange, variant, initialSelected }) => {
+const Dropdown = ({ placeHolder, items, onChange, variant, initialSelected, reset, setReset }) => {
   const [isActive, setIsActive] = useState(false)
   const [selectedLabel, setSelectedLabel] = useState('')
-  const [selectedValue, setSelectedValue] = useState('')
 
   const handleClose = () => {
     setIsActive(false)
@@ -32,22 +31,29 @@ const Dropdown = ({ placeHolder, items, onChange, variant, initialSelected }) =>
 
   const handleSelectItem = (value, label) => {
     handleClose()
-    setSelectedValue(value)
     setSelectedLabel(label)
     onChange(value)
   }
 
   useEffect(() => {
-    if(initialSelected) {
-      const {value, label} = initialSelected
-      handleSelectItem(value, label)
-    }
-
     document.addEventListener('click', handleClose)
     return () => {
       document.removeEventListener('click', handleClose)
     }
   }, [])
+
+  useEffect(() => {
+    const {label} = initialSelected
+    setSelectedLabel(label)
+  }, [])
+
+  useEffect(() => {
+    const {label} = initialSelected
+    if(reset) {
+      setSelectedLabel(label)
+      setReset(false)
+    }
+  }, [reset])
 
   return (
     <div
@@ -85,7 +91,8 @@ Dropdown.defaultProps = {
   variant: '',
   items: [],
   onChange: () => false,
-  initialSelected: null
+  initialSelected: null,
+  reset: false
 }
 
 export default Dropdown

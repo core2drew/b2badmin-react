@@ -1,27 +1,43 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import classname from 'classnames'
 import Dropdown from '../components/dropdown'
+import CompanyContext from '../context/company'
 
 const TableActions = () => {
-
-  const displayCountItems = [
-    {
-      label: 'Display 25',
-      value: 25,
-    },
-    {
-      label: 'Display 50',
-      value: 50,
-    },
-    {
-      label: 'Display 100',
-      value: 100,
-    }
-  ]
+  const context = useContext(CompanyContext)
+  const [isRefreshable, setIsRefreshable] = useState(false)
+  const [dropdownReset, setDropdownReset] = useState(false)
 
   return (
     <div className="table-options">
-      <button className="refresh button -secondary -disabled"><i className="icon-refresh"></i>Refresh List</button>
-      <Dropdown placeHolder={'Display Count'} items={displayCountItems} initialSelected={displayCountItems[0]}/>
+      <button 
+        className={
+          classname(
+            "refresh button -secondary", 
+            {'-disabled': !isRefreshable}
+          )
+        }
+        onClick={() => {
+          context.setDisplay(context.displayCountItems[0].value)
+          setIsRefreshable(false)
+          setDropdownReset(true)
+        }}
+      >
+        <i className="icon-refresh"></i> Refresh List
+      </button>
+      <Dropdown 
+        placeHolder={'Display Count'}
+        items={context.displayCountItems}
+        onChange={
+          count => {
+            context.setDisplay(count)
+            setIsRefreshable(true)
+          }
+        } 
+        initialSelected={context.displayCountItems[0]}
+        reset={dropdownReset}
+        setReset={setDropdownReset}
+      />
     </div>
   )
 }
