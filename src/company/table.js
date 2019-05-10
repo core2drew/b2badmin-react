@@ -48,10 +48,6 @@ const Table = () => {
     setData(initData)
   }, [context.display])
 
-  useEffect(() => {
-    console.log(data)
-  })
-
   const handleSort = sortBy => {
     let sortedData = []
     let data = [...context.companies].splice(0, context.display)
