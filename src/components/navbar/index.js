@@ -3,7 +3,7 @@ import React from 'react'
 const Navbar = () => (
   <nav className="navbar">
     <div className="container d-flex align-items-end">
-      <img src="/images/B2B-logo-light.png" alt={"B2B Logo"}/>
+      <img src="./images/B2B-logo-light.png" alt={"B2B Logo"}/>
       <div className="links">
         <a className="link" href="/">My Sales Home</a>
         <a className="link" href="/">My Maketing Home</a>
